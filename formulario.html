@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login AT-Key</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="img/logo.png" alt="logo" width="180px" />
+        <h2>
+          Cerraduras inteligentes<br />
+          y accesorios
+        </h2>
+        <h5 class="nombreAlum">Alberto Tabernero Valle <br />1-DAW-A<br /></h5>
+      </header>
+      <nav>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="formulario.html">Inicio/Registro</a></p>
+        <p>
+          <a href="formulario.html"
+            ><img width="16px" src="img/icoUsu.png" alt="inicio/registro"
+          /></a>
+        </p>
+      </nav>
+      <form method="post" action="formulario.html">
+        <h2>Regístrate</h2>
+        <fieldset>
+          <legend>Datos personales</legend>
+          <p>
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              placeholder="ej: Alberto"
+              maxlength="50"
+              required
+            />
+          </p>
+          <p>
+            <label for="apellidos">Apellidos:</label>
+            <input
+              type="text"
+              name="apellidos"
+              id="apellidos"
+              placeholder="ej: Pérez López"
+              maxlength="50"
+              required
+            />
+          </p>
+          <p>
+            <label for="dni">DNI/NIE</label>
+            <input
+              type="text"
+              name="dni"
+              id="dni"
+              placeholder="ej: 01015448X"
+              pattern="[0-9]{8}[a-zA-Z]"
+              required
+            />
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ej: example@example.com"
+              autocomplete="email"
+              required
+            />
+          </p>
+          <p>
+            <label for="fechaN">Fecha de nacimiento:</label>
+            <input type="date" name="fechaN" id="fechaN" />
+          </p>
+        </fieldset>
+        <fieldset>
+          <legend>Dirección</legend>
+          <p>
+            <label for="domicilio">Domicilio:</label>
+            <input
+              type="text"
+              name="domicilio"
+              id="domicilio"
+              placeholder="ej: C/ Lázaro Carreter 26 4ºA"
+              maxlength="100"
+            />
+          </p>
+          <p>
+            <label for="ciudad">Ciudad:</label>
+            <input
+              type="text"
+              name="ciudad"
+              id="ciudad"
+              placeholder="ej: Alcalá de Henares"
+              maxlength="100"
+            />
+          </p>
+          <p>
+            <label for="provincia">Provincia:</label>
+            <input
+              type="text"
+              name="provincia"
+              id="provincia"
+              placeholder="ej: Madrid"
+              maxlength="100"
+            />
+          </p>
+  
+          <p>
+            <label for="codPostal">Código Postal:</label>
+            <input
+              type="text"
+              name="codPostal"
+              id="codPostal"
+              placeholder="ej: 28845"
+              size="7"
+              maxlength="5"
+              style="text-align: right"
+            />
+          </p>
+          <p>
+            <label for="telefono">Teléfono:</label>
+            <input
+              type="tel"
+              name="telefono"
+              id="telefono"
+              placeholder="ej: 615457892"
+            />
+          </p>
+          <p>
+            <label for="telefono2">Otro teléfono:</label>
+            <input
+              type="tel"
+              name="telefono2"
+              id="telefono2"
+              placeholder="ej: 668457878"
+            />
+          </p>
+        </fieldset>
+        <button type="submit">Enviar</button>
+        <button type="reset">Reset</button>
+      </form>
+     
+      <footer class="item">pie</footer>
+    </div>
+    
+  </body>
+</html>
