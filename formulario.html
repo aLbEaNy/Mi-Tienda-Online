@@ -1,153 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login AT-Key</title>
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <img src="img/logo.png" alt="logo" width="180px" />
-        <h2>
-          Cerraduras inteligentes<br />
-          y accesorios
-        </h2>
-        <h5 class="nombreAlum">Alberto Tabernero Valle <br />1-DAW-A<br /></h5>
-      </header>
-      <nav>
-        <p><a href="index.html">Home</a></p>
-        <p><a href="formulario.html">Inicio/Registro</a></p>
-        <p>
-          <a href="formulario.html"
-            ><img width="16px" src="img/icoUsu.png" alt="inicio/registro"
-          /></a>
-        </p>
-      </nav>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login AT-Key</title>
+  <link rel="stylesheet" href="css/formulario.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="oculto">
+      <img src="img/logo.png" alt="logo" width="160px" />
+      <h2>
+        Cerraduras inteligentes<br />
+        y accesorios
+      </h2>
+      <h5 class="nombreAlum">Alberto Tabernero Valle <br />1-DAW-A<br /></h5>
+    </header>
+    <nav>
+      <p><a href="index.html"><img width="22px" src="img/home.png" alt="inicio"></a></p>
+      <p><a href="index.html">Inicio</a></p>
+      <p><a href="formulario.html">Login</a></p>
+      <p><a href="formulario.html"><img width="18px" src="img/loginNav.png" alt="registro" /></a></p>
+    </nav>
+    <div class="formulario">
       <form method="post" action="formulario.html">
-        <h2>Regístrate</h2>
+
         <fieldset>
-          <legend>Datos personales</legend>
-          <p>
-            <label for="nombre">Nombre:</label>
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              placeholder="ej: Alberto"
-              maxlength="50"
-              required
-            />
+          <legend>
+            <h1 class="reg">Regístrate</h1>
+          </legend>
+          <p id="name">
+            <label for="name">Nombre:</label>
+            <input type="text" size="29" name="nombre" id="name" placeholder="ej: Alberto" maxlength="50" required />
           </p>
-          <p>
+          <p id="surname">
             <label for="apellidos">Apellidos:</label>
-            <input
-              type="text"
-              name="apellidos"
-              id="apellidos"
-              placeholder="ej: Pérez López"
-              maxlength="50"
-              required
-            />
+            <input type="text" size="29" name="apellidos" id="apellidos" placeholder="ej: Pérez López" maxlength="50"
+              required />
           </p>
-          <p>
-            <label for="dni">DNI/NIE</label>
-            <input
-              type="text"
-              name="dni"
-              id="dni"
-              placeholder="ej: 01015448X"
-              pattern="[0-9]{8}[a-zA-Z]"
-              required
-            />
+          <p id="dni">
+            <label required for="dni">DNI/NIE</label>
+            <input type="text" size="9" name="dni" id="dni" placeholder="ej: 01015448X" pattern="[0-9]{8}[a-zA-Z]"
+              required />
           </p>
-          <p>
+          <p id="email">
             <label for="email">Email:</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="ej: example@example.com"
-              autocomplete="email"
-              required
-            />
+            <input type="email" size="29" name="email" id="email" placeholder="ej: example@example.com"
+              autocomplete="email" required />
           </p>
-          <p>
+          <p id="telefono">
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" size="9" name="telefono" id="telefono" placeholder="ej: 615457892" />
+          </p>
+          <p id="fechaN">
             <label for="fechaN">Fecha de nacimiento:</label>
             <input type="date" name="fechaN" id="fechaN" />
           </p>
-        </fieldset>
-        <fieldset>
-          <legend>Dirección</legend>
-          <p>
+
+          <p id="domicilio">
             <label for="domicilio">Domicilio:</label>
-            <input
-              type="text"
-              name="domicilio"
-              id="domicilio"
-              placeholder="ej: C/ Lázaro Carreter 26 4ºA"
-              maxlength="100"
-            />
+            <input type="text" size="29" name="domicilio" id="domicilio" placeholder="ej: C/ Lázaro Carreter 26 4ºA"
+              maxlength="100" />
           </p>
-          <p>
+          <p id="ciudad">
             <label for="ciudad">Ciudad:</label>
-            <input
-              type="text"
-              name="ciudad"
-              id="ciudad"
-              placeholder="ej: Alcalá de Henares"
-              maxlength="100"
-            />
+            <input type="text" size="29" name="ciudad" id="ciudad" placeholder="ej: Alcalá de Henares"
+              maxlength="100" />
           </p>
-          <p>
+          <p id="provincia">
             <label for="provincia">Provincia:</label>
-            <input
-              type="text"
-              name="provincia"
-              id="provincia"
-              placeholder="ej: Madrid"
-              maxlength="100"
-            />
+            <select id="provincia" name="provincia">
+              <option value="madrid">Madrid</option>
+              <option value="guadalajara">Guadalajara</option>
+              <option value="Barcelona">Barcelona</option>
+            </select>
           </p>
-  
-          <p>
+
+          <p id="codPostal">
             <label for="codPostal">Código Postal:</label>
-            <input
-              type="text"
-              name="codPostal"
-              id="codPostal"
-              placeholder="ej: 28845"
-              size="7"
-              maxlength="5"
-              style="text-align: right"
-            />
+            <input type="text" size="6" name="codPostal" id="codPostal" placeholder="ej: 28845" maxlength="5" />
           </p>
-          <p>
-            <label for="telefono">Teléfono:</label>
-            <input
-              type="tel"
-              name="telefono"
-              id="telefono"
-              placeholder="ej: 615457892"
-            />
-          </p>
-          <p>
-            <label for="telefono2">Otro teléfono:</label>
-            <input
-              type="tel"
-              name="telefono2"
-              id="telefono2"
-              placeholder="ej: 668457878"
-            />
-          </p>
+
+          <button id="bEnviar" type="submit">Enviar</button>
+          <button id="bReset" type="reset">Reset</button>
+
         </fieldset>
-        <button type="submit">Enviar</button>
-        <button type="reset">Reset</button>
       </form>
-     
-      <footer class="item">pie</footer>
     </div>
-    
-  </body>
+    <footer>
+      <section>
+        <article>
+          <h4>Sobre Nosotros</h4>
+          Somos una tienda especializada en cerraduras inteligentes y
+          accesorios de seguridad. Nuestro objetivo es proporcionar
+          productos de alta calidad y soluciones innovadoras para proteger
+          su hogar y su negocio.
+        </article>
+        <article>
+          <h4>Seguridad</h4>
+          <p>
+            Todas
+            nuestras cerraduras cuentan con la última tecnología de seguridad
+            para proteger su hogar.
+          </p>
+          <img width="22px" src="img/cee.png" alt="Icono de seguridad" />
+        </article>
+      </section>
+      <section>
+        <article>
+          <h4>Enlaces Rápidos</h4>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Productos</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Política de Privacidad</a></li>
+          </ul>
+        </article>
+      </section>
+      <section>
+        <article>
+          <h4>Contacto</h4>
+          <address>
+            <strong>Tienda de Cerraduras Inteligentes</strong><br />
+            123 Calle Principal<br />
+            Ciudad, País<br />
+            Teléfono: (123) 456-7890<br />
+            Email: info@atkeycerraduras.com
+          </address>
+        </article>
+      </section>
+
+      <section>
+        <article>
+          <h4>Redes Sociales</h4>
+          <a target="_blank" href="https://www.facebook.com"><img width="40px" src="img/facebook.png"
+              alt="Facebook" /></a>
+          <a target="_blank" href="https://www.youtube.com"><img width="40px" src="img/youtube.png" alt="Youtube" /></a>
+          <a target="_blank" href="https://www.instagram.com"><img width="40px" src="img/instagram.png"
+              alt="Instagram" /></a>
+        </article>
+      </section>
+      <section>
+        <article>
+          <h4>Aceptamos los siguientes métodos de pago:</h4>
+          <p>
+            <a target="_blank" href="https://www.visa.es"><img width="50px" src="img/visa.png" alt="Visa" /></a>
+            <a target="_blank" href="https://www.mastercard.es"><img width="50PX" src="img/mastercard.png"
+                alt="mastercad" /></a>
+            <a target="_blank" href="https://www.paypal.es"><img width="50px" src="img/paypal.png" alt="PayPal" /></a>
+          </p>
+        </article>
+      </section>
+      <section>
+        <img src="img/logo.png" alt="logo" width="60px" />
+        <p class="copyright">
+          © 2024 AT-Key Cerraduras Inteligentes y accesorios. Todos los derechos
+          reservados.
+        </p>
+      </section>
+    </footer>
+  </div>
+
+</body>
+
 </html>

@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+/*RESPONSIVE MOVIL*/
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    background: rgb(236, 235, 235);
+
+}
+
+header {
+    grid-column: 1/ 13;
+    grid-row: 1 / 2;
+    background-image:  url(../img/head.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px;
+    flex-wrap: wrap;
+}
+
+header h2 {
+    color: #7e0c0c;
+    /*color del logo*/
+    font-style: italic;
+    text-align: center;
+}
+
+.nombreAlum {
+
+    align-self: end;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #000000;
+}
+
+nav {
+    grid-column: 1/ 13;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: space-between;
+    background-color: #7e0c0c;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+}
+
+nav a {
+    color: #f6c82d;
+}
+
+nav p:nth-child(2) {
+    margin-right: auto;
+}
+
+.faq { 
+    grid-column: 1 / 13 ;
+    background-image: url(../img/fondoFaq2.jpg);
+    background-attachment: fixed;
+    background-position: left;
+    background-size: cover;
+    flex-direction: column;
+}
+
+.faq h1 {
+    color: #7e0c0c;
+    padding: 1.5rem;
+    font-style: italic;
+    margin-left: 2rem;
+
+}
+
+.faq li {
+    margin: 1rem;
+
+}
+.pregunta {
+    font-style: oblique;
+    font-weight: bold;
+    font-size: larger;
+    padding: 1rem;
+    color:darkblue;
+
+}
+
+.respuestas {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+    padding: 1rem;
+}
+
+
+.respuesta, li, td {
+    margin-bottom: 1rem;
+    color: #000000;
+    font-size: medium;
+}
+
+
+footer {
+    grid-column: 1 / 13;
+    border-top: #7e0c0c solid 0.5rem;
+    border-bottom: #7e0c0c solid 0.5rem;
+    background-image: url(../img/head.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+footer section article {
+    padding: 1rem;
+}
+
+footer h4 {
+    margin-bottom: 1rem;
+}
+.copyright {
+    margin-bottom: 1rem;
+}
+
+/*RESPONSIVE TABLET O ESCRITORIO*/
+
+@media (min-width: 720px) {
+
+    .faq { 
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+    }
+
+    
+    .respuesta {
+        max-width: 50%;
+    }
+
+    footer {
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 2rem;
+    }
+
+}
