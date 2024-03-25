@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0%;
+    scroll-margin-top: 3em;
 }
 
 /*RESPONSIVE MOVIL*/
@@ -42,25 +43,68 @@ header h2 {
 nav {
     grid-column: 1/ 13;
     grid-row: 2 / 3;
-    display: flex;
-    justify-content: space-between;
     background-color: #7e0c0c;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
     position: sticky;
     top: 0;
     z-index: 1000;
-    
 }
 
+nav ul {
+   padding: 0.2em;
+   display: flex;
+   justify-content: start;
+   margin: 0;
+   padding: 0;
+   
+}
+nav li {
+    float: left;
+    list-style-type: none;
+    padding-right: 1.2em;
+    padding-left: 1.2em;
+}
 nav a {
+    display:block;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
     color: #f6c82d;
 }
 
-nav p:nth-child(2) {
-    margin-right: auto;
+nav img {
+    padding-left: 0.3em;
+    width: 1em;
+}
+.navLogin {
+    margin-left: auto;
+    
+} 
+.dropdown-content a{
+
+    padding: 0.8em;
+    padding-right: 2em;
+    
+}
+.dropdown-content {
+    display: none;
+    padding-top: 0.4em;
+    position: absolute;
+    background-color: #7e0c0c;
+    box-shadow: 0 8px 16px 0 rgb(34, 33, 33);
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #e9c44c;
+    color: #7e0c0c;
+}
+.dropbtn:hover {
+    background-color: #e9c44c;
+    color: #7e0c0c;
 }
 
 .faq { 
@@ -101,7 +145,7 @@ nav p:nth-child(2) {
 }
 
 
-.respuesta, li, td {
+.respuesta, td {
     margin-bottom: 1rem;
     color: #000000;
     font-size: medium;
