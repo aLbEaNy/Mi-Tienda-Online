@@ -52,21 +52,23 @@ nav {
 }
 
 nav ul {
-   padding: 0.2em;
-   display: flex;
-   justify-content: start;
-   margin: 0;
-   padding: 0;
-   
+    padding: 0.2em;
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+
 }
+
 nav li {
     float: left;
     list-style-type: none;
     padding-right: 1.2em;
     padding-left: 1.2em;
 }
+
 nav a {
-    display:block;
+    display: block;
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
     color: #f6c82d;
@@ -76,16 +78,19 @@ nav img {
     padding-left: 0.3em;
     width: 1em;
 }
+
 .navLogin {
     margin-left: auto;
-    
-} 
-.dropdown-content a{
+
+}
+
+.dropdown-content a {
 
     padding: 0.8em;
     padding-right: 2em;
-    
+
 }
+
 .dropdown-content {
     display: none;
     padding-top: 0.4em;
@@ -98,10 +103,12 @@ nav img {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .dropdown-content a:hover {
     background-color: #e9c44c;
     color: #7e0c0c;
 }
+
 .dropbtn:hover {
     background-color: #e9c44c;
     color: #7e0c0c;
@@ -139,23 +146,20 @@ main article {
 }
 
 
-.menuDescripcion {
+.menuInfo {
 
     position: absolute;
-    block-size: 60%;
-    justify-self: start;
+    block-size: auto;
+    margin-top: 2em;
+    margin-bottom: 50%;
     padding: 3%;
     text-align: center;
-    background-color: rgb(236, 235, 235);
+    font-weight: bold;
+    background-color: #fdeebc;
     color: #7e0c0c;
     border-radius: 1rem;
     opacity: 0;
-    transition: 0.5s;
-}
-
-.menuDescripcion:hover {
-
-    opacity: 1;
+    z-index: -1;
 }
 
 img {
@@ -178,16 +182,17 @@ img {
     margin-top: 1.1em;
 
 }
-
+.negrita {
+    font-weight: bold;
+}
+.margen {
+    margin-left: 1em;
+}
 .carrito h2 {
     align-self: center;
     margin: 1.5rem;
 }
 
-.units button {
-    block-size: 50%;
-    font-size: 50%;
-}
 
 .itemC {
     display: flex;
@@ -196,7 +201,52 @@ img {
 
 }
 
-#precioC {
+.btnAdd {
+    background-image: url(/img/mas.png);
+    background-size: cover;
+    width: 1.5em;
+    height: 1.5em;
+    border: none;
+
+}
+
+.btnAdd:hover {
+    width: 1.8em;
+    height: 1.8em;
+}
+
+
+.btnDel {
+    background-image: url(/img/menos.png);
+    background-size: cover;
+    width: 1.5em;
+    height: 1.5em;
+    border: none;
+}
+
+.btnDel:hover {
+    width: 1.8em;
+    height: 1.8em;
+}
+.btnDelP {
+    background-image: url(/img/borrar.png);
+    background-size: cover;
+    width: 1.9em;
+    height: 2.7em;
+    border: none;
+    margin-left: auto;
+}
+
+.btnDelP:hover {
+    width: 2.2em;
+    height: 3em;
+}
+h4 {
+    margin-top: 0.5em;
+}
+
+
+.precioC {
     background-color: #fdeebc;
     font-size: 1.5rem;
     margin-bottom: 1rem;
