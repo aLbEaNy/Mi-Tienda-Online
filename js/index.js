@@ -154,7 +154,15 @@ function renderizarProductos(categoria) {
 
 function renderizarCarrito() {
 
-    DOMcarrito.innerHTML = ''; // Borrado todo el html dinamico del carrito
+    console.log(carrito.length);
+    const unidCarrito = carrito.length;
+    const idNavCarrito = document.getElementById('navCarrito');
+    idNavCarrito.innerHTML = `<img class="imgCarrito" src="img/carrito.png" alt="carrito"/> Carrito(${unidCarrito})`;
+    toggleCarrito();
+
+
+
+    DOMcarrito.innerHTML = ''; // Borrado todo el html del carrito
     const carritoSinDupli = new Set(carrito);
     carritoSinDupli.forEach(idPr => {
 
@@ -211,13 +219,44 @@ function renderizarCarrito() {
 
     DOMtotal.textContent = 'Total: ' + calcularTotal() + divisa;
 
-    // BOTON DE VACIAR CARRITO
-    const btnResetCarrito = document.getElementById('resetCarrito');
-    btnResetCarrito.addEventListener('click', () => { carrito = []; renderizarCarrito() });
 
     saveLS();
 }
+// BOTON DE VACIAR CARRITO
+const btnResetCarrito = document.getElementById('resetCarrito');
+btnResetCarrito.addEventListener('click', () => { carrito = []; renderizarCarrito() });
 
+//---------- MOSTRAR/OCULTAR CARRITO ------------------//
+
+const iconoCarrito = document.getElementById('navCarrito');
+iconoCarrito.addEventListener('click', toggleCarrito);
+
+function toggleCarrito(ev) {
+
+    const main = document.querySelector('main');
+    const aside = document.querySelector('aside');
+    if (ev != undefined) {  // si venimos desde el icono de carrito
+        if (aside.classList.value.includes('oculta')) {
+            //console.log('estaba oculta');
+            main.classList.remove('agrandaM');
+        }
+        else {
+            main.classList.add('agrandaM');
+        }
+        aside.classList.toggle('oculta');
+    }
+    else { //venimos de otros eventos o del load
+        if (carrito.length == 0) {
+            main.classList.add('agrandaM');
+            aside.classList.add('oculta');
+        }
+        else {
+            main.classList.remove('agrandaM');
+            aside.classList.remove('oculta');
+        }
+    }
+}
+//----------------------------------------------------//
 
 // DEVUELVE EL OBJETO PASANDOLE EL ID
 function getItem(idPr) {
@@ -272,3 +311,4 @@ function loadLS() {
 window.addEventListener('load', loadLS)
 window.addEventListener('load', renderizarProductos(productosBD));
 window.addEventListener('load', renderizarCarrito);
+
