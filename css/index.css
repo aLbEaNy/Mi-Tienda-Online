@@ -30,6 +30,7 @@ header h2 {
     /*color del logo*/
     font-style: italic;
     text-align: center;
+    font-size: 2.5em;
 }
 
 .nombreAlum {
@@ -67,7 +68,8 @@ nav li {
     padding-left: 1.2em;
 }
 
-nav a, nav span {
+nav a,
+nav span {
     display: block;
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
@@ -80,12 +82,17 @@ nav img {
 }
 
 .imgCarrito {
-    width: 28px;
+    width: 24px;
 }
 
 .navLogin {
     margin-left: auto;
 
+}
+
+#navCarrito {
+    cursor: pointer;
+    margin-left: 8em;
 }
 
 .dropdown-content a {
@@ -186,12 +193,15 @@ img {
     margin-top: 1.1em;
 
 }
+
 .negrita {
     font-weight: bold;
 }
+
 .margen {
     margin-left: 1em;
 }
+
 .carrito h2 {
     align-self: center;
     margin: 1.5rem;
@@ -206,6 +216,7 @@ img {
 }
 
 .btnAdd {
+    cursor: pointer;
     background-image: url(/img/mas.png);
     background-size: cover;
     width: 1.5em;
@@ -221,6 +232,7 @@ img {
 
 
 .btnDel {
+    cursor: pointer;
     background-image: url(/img/menos.png);
     background-size: cover;
     width: 1.5em;
@@ -232,7 +244,9 @@ img {
     width: 1.8em;
     height: 1.8em;
 }
+
 .btnDelP {
+    cursor: pointer;
     background-image: url(/img/borrar.png);
     background-size: cover;
     width: 1.9em;
@@ -245,6 +259,7 @@ img {
     width: 2.2em;
     height: 3em;
 }
+
 h4 {
     margin-top: 0.5em;
 }
@@ -266,6 +281,7 @@ h4 {
     background-color: #e9c44c;
     font-size: 1.5rem;
     margin: 1rem;
+    text-align: center;
 }
 
 #resetCarrito {
@@ -273,6 +289,10 @@ h4 {
     color: #7e0c0c;
     block-size: 40%;
     align-self: center;
+    border: #f6c82d groove;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 3%;
 }
 
 #pagar {
@@ -318,21 +338,35 @@ footer h4 {
 @media (min-width: 650px) {
     main {
         grid-column: 1/ 10;
+        grid-row: 3 / 4;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+
+    }
+    .agrandaM {
+        grid-column: 2 / 12;
+    }
+
+    .oculta {
+        opacity: 0;
+        pointer-events: none;
     }
 
     .carrito {
+        position: sticky;
+        top: 60px;
         grid-column: 10 / 13;
+        grid-row: 3 / 4;
         display: flex;
         flex-direction: column;
         align-items: start;
         block-size: auto;
+        height: min-content;
+        margin-bottom: 31em;
     }
 
     .carrito article * {
         display: flex;
-
         align-items: end;
     }
 
