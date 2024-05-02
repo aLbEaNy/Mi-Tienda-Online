@@ -44,7 +44,7 @@ nav {
     grid-column: 1/ 13;
     grid-row: 2 / 3;
     background-color: #7e0c0c;
-    padding-top: 0.4em;
+    padding-top: 0.9em;
     padding-bottom: 0.4em;
     position: sticky;
     top: 0;
@@ -67,7 +67,7 @@ nav li {
     padding-left: 1.2em;
 }
 
-nav a {
+nav a, nav span {
     display: block;
     text-decoration: none;
     font-family: 'Courier New', Courier, monospace;
@@ -77,6 +77,10 @@ nav a {
 nav img {
     padding-left: 0.3em;
     width: 1em;
+}
+
+.imgCarrito {
+    width: 28px;
 }
 
 .navLogin {
