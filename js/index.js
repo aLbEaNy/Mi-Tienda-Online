@@ -27,7 +27,7 @@ const productosBD = [
           Access, desde cualquier lugar en cualquier momento. Disponible en plata y negro mate.',
         nombre: 'CERRADURA INTELIGENTE KEYLESS LINUS',
         precio: 195.95,
-        categoria: ['ceraduraE']
+        categoria: ['cerraduraE']
     },
     {
         id: 4,
@@ -36,7 +36,7 @@ const productosBD = [
          en una llave inteligente. Se sigue pudiendo abrir la puerta con una llave física.',
         nombre: 'NUKI SMART LOCK V3',
         precio: 168.99,
-        categoria: ['ceraduraE']
+        categoria: ['cerraduraE']
     },
     {
         id: 5,
@@ -53,7 +53,7 @@ const productosBD = [
          cualquier tipo de puerta. Permite la apertura remota desde mando a distancia RF int-KEY incopiable. Invisible desde el exterior.',
         nombre: 'CERRADURA INVISIBLE 504 INT-LOCK RF',
         precio: 185,
-        categoria: ['ceraduraE']
+        categoria: ['cerraduraE']
     },
     {
         id: 7,
@@ -63,7 +63,7 @@ const productosBD = [
           una gran estética y seguridad.',
         nombre: 'YZKTeco LH3000L',
         precio: 87.50,
-        categoria: ['ceraduraE', 'tarjeta']
+        categoria: ['cerraduraE', 'tarjeta']
     },
     {
         id: 8,
@@ -72,7 +72,7 @@ const productosBD = [
          puertas blindadas. App Cloud Smart Lock. Sin corte de llave',
         nombre: 'SF-SMARTLOCK-BT-PRO-V2',
         precio: 189.95,
-        categoria: ['ceraduraE']
+        categoria: ['cerraduraE']
     },
     {
         id: 9,
@@ -82,7 +82,7 @@ const productosBD = [
         WatchManDoor Home',
         nombre: 'WM-LOCK-B BLUETOOTH WATCHMAN DOOR',
         precio: 172,
-        categoria: ['ceraduraE']
+        categoria: ['cerraduraE']
     }
 
 ];
@@ -91,13 +91,34 @@ const DOMitems = document.querySelector('#items');
 const DOMcarrito = document.querySelector('#carrito');
 const DOMtotal = document.getElementById('total');
 
-
 let carrito = [];
 const divisa = '€';
 
-function renderizarProductos() {
+//--------- CATEGORIAS ---------------- //
 
-    productosBD.forEach(items => {
+const cerraduraE = document.getElementById('cerraduraE');
+cerraduraE.addEventListener('click', obtenerCat);
+const teclado = document.getElementById('teclado');
+teclado.addEventListener('click', obtenerCat);
+const tarjeta = document.getElementById('tarjeta');
+tarjeta.addEventListener('click', obtenerCat);
+const huella = document.getElementById('huella');
+huella.addEventListener('click', obtenerCat);
+const todas = document.getElementById('todas');
+todas.addEventListener('click', () => renderizarProductos(productosBD));
+
+function obtenerCat(ev) {
+    const cat = ev.target.id;
+    //console.log(cat);
+    const categoria = productosBD.filter(item => item.categoria.some(it => it.includes(cat)));
+    renderizarProductos(categoria);
+}
+
+function renderizarProductos(categoria) {
+
+    DOMitems.innerHTML = ''; // Borro antes de cargar
+
+    categoria.forEach(items => {
 
         const nArti = document.createElement('article');
         nArti.setAttribute('id', items.id);
@@ -249,5 +270,5 @@ function loadLS() {
 }
 //--------- INICIO ---------//
 window.addEventListener('load', loadLS)
-window.addEventListener('load', renderizarProductos);
+window.addEventListener('load', renderizarProductos(productosBD));
 window.addEventListener('load', renderizarCarrito);
