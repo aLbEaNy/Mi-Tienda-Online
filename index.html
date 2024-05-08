@@ -7,9 +7,10 @@
   <title>AT-Key cerraduras inteligentes y accesorios</title>
   <link rel="stylesheet" href="css/index.css" />
 </head>
-
 <body>
+
   <div class="container">
+
     <header>
       <img src="img/logo.png" alt="logo" width="160px" />
       <h2>
@@ -18,6 +19,7 @@
       </h2>
       <h5 class="nombreAlum">Alberto Tabernero Valle <br />1-DAW-A<br /></h5>
     </header>
+
     <nav>
       <ul class="menu">
         <li><a class="dropbtn" href="index.html">INICIO</a></li>
@@ -32,15 +34,15 @@
         </li>
         <li><a class="dropbtn" href="faq.html">FAQ</a></li>
         <li class="navLogin"><a id="navCarrito" class="dropbtn" ><img class="imgCarrito" src="img/carrito.png" alt="carrito"/></a></li>
-        <li class="navLogin"><a class="dropbtn" href="">Login<img width="18px" src="img/loginNav.png" alt="registro" /></a></li>
+        <li class="navLogin"><a class="dropbtn" id="login" href="#">Login<img width="18px" src="img/loginNav.png" alt="registro" /></a></li>
       </ul>
     </nav>
+
     <main id="items">
       <!-- Renderizado de productos con JS-->
     </main>
 
     <!-- CARRITO DE LA COMPRA -->
-
     <aside class="carrito">
       <h2>Carrito de compra</h2>
       <article id="carrito" class="itemC"></article>
@@ -128,7 +130,45 @@
         </p>
       </section>
     </footer>
+    
   </div>
+
+  <!-- FORMULARIO-->
+  <div class="formulario">
+
+    <form id="formReg" class="form" name="formReg" >
+
+      <h1 class="reg">Formulario de registro</h1>
+      <p>
+        <label for="usuario">Usuario:</label>
+        <input type="text" size="29" name="usuario" id="usuario" required/>
+      </p>
+      <p class="fuera">
+        <label for="email">Email:</label>
+        <input type="email" size="29" name="email" id="email" placeholder="ej: example@example.com"
+          autocomplete="email" required />
+      </p>
+      <p>
+        <label for="password">Contraseña:</label>
+        <input type="password" size="29" name="password" id="password" required/>
+        <img id="verPass" src="img/ojo.jpg" alt="ver password"/>
+      </p>
+      <p class="fuera">
+        <label for="vPassword">Repite contraseña:</label>
+        <input type="password" size="29" name="vPassword" id="vPassword" required/>
+        <img id="verVPass" src="img/ojo.jpg" alt="ver vPassword"/>
+      </p>
+      <p class="fuera">
+        <label for="direccion">Dirección completa:</label>
+        <textarea name="direccion" id="direccion" cols="30" rows="3" required minlength="10"></textarea>
+      </p>
+      <p>
+        <button id="bEnviar" type="submit">Enviar</button>
+        <button id="bCancelar" type="button">Cancelar</button>
+      </p>
+    </form>
+  </div>
+
   <script src="js/index.js"></script>
 </body>
 

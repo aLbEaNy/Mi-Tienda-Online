@@ -93,6 +93,7 @@ const DOMtotal = document.getElementById('total');
 
 let carrito = [];
 const divisa = '€';
+let usuarioBD = [];
 
 //--------- CATEGORIAS ---------------- //
 
@@ -299,16 +300,121 @@ function delItemCarrito(ev) {
     renderizarCarrito();
 }
 
+
 //--------- LOCAL STORAGE --//
+
 function saveLS() {
     window.localStorage.setItem('carritoMiTienda', JSON.stringify(carrito));
 }
 function loadLS() {
     if (window.localStorage.getItem('carritoMiTienda'))
         carrito = JSON.parse(window.localStorage.getItem('carritoMiTienda'));
+    if (window.localStorage.getItem('usuarios'))
+        usuarioBD = JSON.parse(window.localStorage.getItem('usuarios'));
 }
 //--------- INICIO ---------//
 window.addEventListener('load', loadLS)
 window.addEventListener('load', renderizarProductos(productosBD));
 window.addEventListener('load', renderizarCarrito);
 
+//---------- FORMULARIO -----------//
+
+const divForm = document.querySelector('.formulario')
+const DOMcontainer = document.querySelector('.container');
+
+const login = document.getElementById('login');
+login.addEventListener('click', muestraForm);
+
+const btnCancelar = document.querySelector('#bCancelar');
+btnCancelar.addEventListener('click', cierraForm);
+
+const btnEnviar = document.getElementById('bEnviar');
+btnEnviar.addEventListener('click', submitEnviar);
+
+// Mensaje personalizado dirección
+document.forms.formReg.direccion.addEventListener('input', ev => {
+    console.log(ev.target.validity.tooShort);
+    if (ev.target.validity.tooShort) {
+      ev.target.setCustomValidity("Dirección demasiado corta. No has escrito la dirección de envío completa.");
+    }
+    else
+      ev.target.setCustomValidity("");
+  });
+//-----------------------------------
+// Ver password click en ojo 
+document.getElementById('verPass').addEventListener('click', () => {
+    const tipoTextPass = document.getElementById('password');
+    if (tipoTextPass.getAttribute('type') === 'password')
+        tipoTextPass.setAttribute('type','text');
+    else
+        tipoTextPass.setAttribute('type','password');
+});
+document.getElementById('verVPass').addEventListener('click', () => {
+    const tipoTextPass = document.getElementById('vPassword');
+    if (tipoTextPass.getAttribute('type') === 'password')
+        tipoTextPass.setAttribute('type','text');
+    else
+        tipoTextPass.setAttribute('type','password');
+});
+//-----------------------------------
+function submitEnviar(ev) {
+    const usuario = document.getElementById('usuario').value;
+    const pass = document.getElementById('password').value;
+    if (usuarioBD.length != 0) {
+        if (usuarioBD.find(item => item.usuario === usuario) && usuarioBD.find(i => i.pass === pass)) {
+            cierraForm();
+            ev.preventDefault();
+            alert(`Bienvenido ${usuario}`);
+            login.innerText = usuario;
+        }
+        else
+            alert('Usuario o password incorrectos');
+        ev.preventDefault();
+    }
+    else
+        registroForm(ev);
+}
+
+function registroForm(ev) {
+    const usuario = document.getElementById('usuario').value;
+    const email = document.getElementById('email').value;
+    const pass = document.getElementById('password').value;
+    const vPass = document.getElementById('vPassword').value;
+    const direccion = document.getElementById('direccion').value;
+
+    let esValida = false;
+    if (pass !== vPass) {
+        alert('Las contraseñas no coinciden');
+        ev.preventDefault();
+    }
+    else if (direccion.length < 10) {
+    }
+    else
+        esValida = true;
+    console.log(esValida);
+    if (esValida) {
+        usuarioBD = [{ usuario, email, pass, direccion }];
+        console.log(usuarioBD);
+        window.localStorage.setItem('usuarios', JSON.stringify(usuarioBD));
+        cierraForm();
+    }
+}
+function muestraForm() {
+    if (usuarioBD.length != 0)
+        loginForm();
+    divForm.style.display = 'block';
+    DOMcontainer.style.filter = 'blur(5px)';// Aplica un filtro de desenfoque
+    DOMcontainer.style.pointerEvents = 'none';// Desactiva eventos de puntero
+}
+function cierraForm() {
+    divForm.style.display = 'none';
+    DOMcontainer.style.filter = 'none';
+    DOMcontainer.style.pointerEvents = 'auto';
+}
+
+function loginForm() {
+    document.querySelector('form h1').textContent = 'Inicio de sesión';
+    const fuera = document.querySelectorAll('.fuera');
+    fuera.forEach(i => i.remove()); // elimino los p de formulario de registro que no necesito para login
+}
+// -------------------------------------------------------------------//
